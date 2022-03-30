@@ -1,0 +1,51 @@
+<%- include("template/cabecera") %>
+<div class="container">
+
+
+    <div class="container">
+        <h1 class="text-primary mt-3 text-center">CRUD Mascotas</h1>
+
+        <div class="d-grid gap-2">
+            <a href="/mascotas/crear" class="btn btn-success my-4">Nueva</a>
+        </div>
+
+        <table class="table caption-top">
+            <caption>List of pets</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">acción</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% if (arrayMascotas.length >0) { %>
+                <% arrayMascotas.forEach(el => { %>
+
+                <tr>
+                    <th scope="row"><%= el.id %></th>
+                    <td><%= el.nombre %></td>
+                    <td><%= el.descripcion %></td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="mascotas/<%= el.id %>">
+                            Editar
+                        </a>
+                        <!-- <button class="btn btn-danger btn-sm" data-id="<%= el.id %>">
+                            Eliminar
+                        </button> -->
+                    </td>
+                </tr>
+
+                <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+<%- include("template/footer") %>
